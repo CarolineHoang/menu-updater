@@ -1,0 +1,95 @@
+{
+    "MenuSection": [
+        {
+            "Items": [
+                {
+                    "title": "Chicken Over Rice",
+                    "price": 12
+                },
+
+                {
+                    "title": "Chicken2 Over Rice",
+                    "price": 12
+                }, 
+
+                {
+                    "title": "Chicken3 Over Rice",
+                    "price": 12
+                },
+
+                {
+                    "title": "Chicken4 Over Rice",
+                    "price": 12
+                }
+
+
+            ],
+            "name": "Lunch Specials"
+        },
+
+
+
+        {
+            "Items": [
+                {
+                    "title": "something other than chicken",
+                    "price": 23312
+                },
+
+                {
+                    "title": "something other than beef",
+                    "price": 23982
+                }
+
+
+            ],
+            "name": "Dinner Specials"
+        },
+
+
+
+        {
+            "Items": [
+                {
+                    "title": "beef",
+                    "price": 29298412
+                },
+
+                {
+                    "title": "probably some kind of food",
+                    "price": 29298412
+                },
+
+                {
+
+                }
+
+
+            ],
+            "name": "Something Specials"
+        },
+
+
+
+        {
+            "Items": [
+                {
+                    "title": "Creme Brulee",
+                    "price": 23923556
+                },
+
+                {
+                    "title": "ButterBeer",
+                    "price": 66838748
+                }
+
+
+            ],
+            "name": "Desserts"
+        }
+
+
+        
+    ]
+    
+}
