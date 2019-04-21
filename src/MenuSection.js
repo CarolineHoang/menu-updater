@@ -676,7 +676,7 @@ class MenuSection extends Component {
                 priceDisp = 
                 <InputWrapper>
                 <Label>Item Price:</Label>
-                <Input type="number" name="price" value={this.state.price} onChange={this.handleInputChange} placeholder="enter price"/>
+                <Input type="number"  step="0.01" name="price" value={this.state.price} onChange={this.handleInputChange} placeholder="enter price"/>
                 </InputWrapper>;
             }
 
