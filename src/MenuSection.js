@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import styled from "styled-components";
 import DisplayData from "./DisplayData";
 
@@ -11,9 +10,6 @@ const AppWrapper = styled.div`
     margin:0;
     padding:0;
     overflow: scroll;
-`;
-const Body = styled.b`
-margin:0;
 `;
 
 const AddItemButton =styled.button`
@@ -43,9 +39,6 @@ const Plus = styled.div`
     justify-content: center;
     align-items: center;
 
-
-    // text-align: center;
-
 `;
 
 const PopUp =styled.div`
@@ -60,16 +53,11 @@ const PopUp =styled.div`
     background-color: white;
     border-style: solid;
     border-color: black;
-    // border-weight: 50px;
     padding: 1vw 2vw 0 2vw; //top right bottom left clock wise
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: left;
-
-    // opacity: .4;
-    
-
 `;
 
 
@@ -83,30 +71,22 @@ const ClosePopButton = styled.button`
     justify-content: center;
     align-items: center;
     float:right;
-    
-    // position: sticky;
-    // top: 0;
-    // right: 0;
     z-index: 20;
     transition: .5s;
     :hover{
         background-color: gray !important;
         color: white
-    }
-    
+    } 
 `;
+
 const PopHeader = styled.div`
-font-size:3vw;
-font-weight: bold;
-height: 15vh;
-// width: 60%;
-text-align: left;
-
-opacity: .4;
-display: flex;
-justify-content: space-between;
-
-
+    font-size:3vw;
+    font-weight: bold;
+    height: 15vh;
+    text-align: left;
+    opacity: .4;
+    display: flex;
+    justify-content: space-between;
 `;
 
 
@@ -116,86 +96,39 @@ const SectItemContainer = styled.div`
 
 `;
 
-const Test = styled.div`
-:hover{
-    background-color: blue;
-}
-`;
-
-const Item2 = styled.div`
-    height: 3vw;
-    width:50%;
-    color: black;
-    position:absolute;
-    right=0px;
-    bottom=0px;
-    background-color: #46E487;
-    border-style: solid;
-    display: flex;
-
-    :hover{
-        background-color: blue;
-    }
-`;
-
-
-const ItemContainer = styled.div`
-    height: 3vw;
-    width:50%;
-    color: black;
-    background-color: #46E487;
-    border-style: solid;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    :hover{
-        background-color: blue;
-    }
-`;
 const SectionWrapperLeft = styled.div`
     display: flex;
     position:absolute;
     height: 100%;
     width: 50%;
-    // background-color: pink;
-    // opacity:.2;
     left:0px;
     top:0px;
     border-right: black solid 5px;
-    // overflow:hidden;
-    // background-color:#f9f7f7;
     z-index: 5
 `;
-
 
 const SectionWrapperRight = styled.div`
     display: flex;
     position:absolute;
     height: 100%;
     width: 50%;
-    // background-color: pink;
-    // opacity:.2;
     right:0px;
     top:0px;
-    // background-color:#f9f7f7;
     z-index: 1
 
 `;
 
 const Section= styled.div`
-
 `;
 
 
 const Form = styled.form`
-    display: flex; /*inline*/
-    
+    display: flex;  
 `;
 
 
 const Input = styled.input`
-    
-    width: 42.8vw; /* 47.8vw    49.7vw*/
+    width: 42.8vw; 
     height: 4vw;
     font-size: 1.5vw;
     padding-left: 3vw;
@@ -208,7 +141,6 @@ const Input = styled.input`
 const InputWrapper = styled.div`
     display: flex;
     justify-position: space-evenly;
-
 `;
 
 const InputContainer = styled.div `
@@ -223,29 +155,21 @@ const AddButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-
-
-
 `;
 
 
 
 const Label = styled.div`
-width: 6vw;
-display: flex;
-align-items: center;
-
+    width: 6vw;
+    display: flex;
+    align-items: center;
 `;
-
-
 
 
 
 const Error = styled.div`
     color: red;
 `;
-
-
 
 
 
@@ -272,9 +196,6 @@ class MenuSection extends Component {
             Sections:[
             ],
 
-            selectedStyle:{"background-color": "white"},
-
-
             value: '',
 
             price: null,
@@ -286,11 +207,7 @@ class MenuSection extends Component {
             errorMsg: ""
 
 
-          };
-
-
-
-
+        };
 
         var index2 =0;
 
@@ -305,7 +222,6 @@ class MenuSection extends Component {
             };
 
         };
-
        
         for(var i = 0; i < this.state.Menu.MenuSection.length; i++){
             this.state.Sections[i] = {text:this.state.Menu.MenuSection[i].name,
@@ -319,18 +235,13 @@ class MenuSection extends Component {
         this.toggleClass2 = this.toggleClass2.bind(this);
 
         this.addItem = this.addItem.bind(this);
-        
-        this.handleSubmit = this.handleSubmit.bind(this);
 
         this.popUpToggle = this.popUpToggle.bind(this);
 
         this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-
-
     addItem(type,e) {
-
 
         var inputEL = this.state.value;
 
@@ -374,18 +285,12 @@ class MenuSection extends Component {
 
 
             e.preventDefault();
-            this.setState({     value: "",
+            this.setState({     
                                 popUp: false,
+                                value: "",
                                 price: ""        
             });
-
-
     };  
-    
-
-
-
-
     
     toggleClass2(Section, Type) {
         
@@ -396,6 +301,7 @@ class MenuSection extends Component {
 
         if (this.state.currentSection===Section){
             this.setState({ currentSection: null,
+                            value: "",
                             popUp: false})
         }
 
@@ -403,31 +309,14 @@ class MenuSection extends Component {
         const currentState = this.state.clicked;
         this.setState({ clicked: !currentState ,
                         currentSection: Section,
-                        // currentItem: Item
+                        value: "",
                         type2Add: Type,
-                        popUp: false}
-                        , function () {
-                            console.log("the current section is:   " + this.state.type2Add);
-                            // ^This prints out a current and up to date version of currentSection to check
-                        }
-                        
-                        );
+                        popUp: false
+                        });
         }
-        
     };
 
-
-
-
-
-
-
-
-
-        
-
-
-      handleInputChange(event) {
+    handleInputChange(event) {
         const target = event.target;
         const value = target.type === 'checkbox' ? target.checked : target.value;
         const name = target.name;
@@ -437,24 +326,12 @@ class MenuSection extends Component {
         });
       }
 
-      handleSubmit(event) {
- 
-        alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
-      };
-
-
- 
-
-
-
-
 
     popUpToggle(type,Close){
 
-        console.log("DDDDDDDDDDDDDDDDDDDDD" + type +"    "+this.state.type2Add)
         if (Close == true){
-                this.setState({popUp: false});
+                this.setState({popUp: false,
+                               value: ""    });
                                       
         }
         else if (this.state.currentSection !== null || type == "Section"){
@@ -463,38 +340,24 @@ class MenuSection extends Component {
             const popDisp = this.state.popUp;
                 this.setState({ popUp: true, 
                                 type2Add: type,
-                                errorMsg:""}
-                                , function () {
-                                    console.log("BBBBBBBBBBBBBBBB1   " + this.state.popUp);
-                                    console.log("EEEEEEEEEEEEEEEE   " + this.state.type2Add);
-                                }
-                            
-                );            
+                                errorMsg:"",
+                                value: ""
+                });            
             }
-
-
 
             else{
                 const popDisp = this.state.popUp;
                 this.setState({ popUp: !popDisp, 
                                 type2Add: type,
                                 errorMsg:""
-                }
-                , function () {
-                    console.log("BBBBBBBBBBBBBBBB2   " + this.state.popUp);
-                    console.log("EEEEEEEEEEEEEEEE   " + this.state.type2Add);
-                }
-                                
-                );
+                });  
             } 
         }
-
 
         else{
             this.setState({errorMsg: "*** Please Choose a Section ***",
                             popUp: false});
         }               
-
     };
 
     render() {
@@ -512,7 +375,6 @@ class MenuSection extends Component {
                 <Input type="number"  step="0.01" name="price" value={this.state.price} onChange={this.handleInputChange} placeholder="enter price"/>
                 </InputWrapper>;
             }
-
 
             var popDisplay=
             <PopUp>
@@ -533,70 +395,50 @@ class MenuSection extends Component {
           <AddButton type="submit">+</AddButton>
         </Form> 
         </PopUp>;
-         
-
         }
 
-        console.log("aolifnael");
-
-
-
-
-     
       return (
-          <AppWrapper>
-       <SectionWrapperLeft>
-           <Section>
-    
-                <AddItemButton onClick= {() => this.popUpToggle("Section")}>
-                    <AddButtonTitle>Menu Sections</AddButtonTitle>
-                        <Plus>+</Plus>
-                </AddItemButton>
+            <AppWrapper>
 
-               {popDisplay}
-
-
-
-
-
-
-              
-                   <DisplayData entries={this.state.items}/>
-      
-                <DisplayData toggleClass2= {this.toggleClass2} entries={this.state.Sections} currentSection={this.state.currentSection} currentItem={this.state.currentItem} />
+                <SectionWrapperLeft>
+                    <Section>
+                        <AddItemButton onClick= {() => this.popUpToggle("Section")}>
+                            <AddButtonTitle>Menu Sections</AddButtonTitle>
+                            <Plus>+</Plus>
+                        </AddItemButton>
+                        {popDisplay}
+                        <DisplayData toggleClass2= {this.toggleClass2} 
+                                     entries={this.state.Sections} 
+                                     currentSection={this.state.currentSection} 
+                                     currentItem={this.state.currentItem}        />
+                    </Section>
+                 </SectionWrapperLeft>
 
 
-           </Section>
-        </SectionWrapperLeft>
 
-        <SectionWrapperRight>
-           <Section>
+                <SectionWrapperRight>
+                    <Section>
+                         <AddItemButton onClick= {() => this.popUpToggle("Item")}>
+                            <AddButtonTitle>
+                                <SectItemContainer>
+                                    Section Items
+                                    <Error>{this.state.errorMsg}</Error>
+                                </SectItemContainer>
+                            </AddButtonTitle> 
+                            <Plus>+</Plus>
+                        </AddItemButton>
 
-                <AddItemButton onClick= {() => this.popUpToggle("Item")}>
-                    <AddButtonTitle>
-                        <SectItemContainer>
-                        Section Items
-                        <Error>{this.state.errorMsg}</Error>
-                        </SectItemContainer>
-                    </AddButtonTitle> 
-                    <Plus>+</Plus>
-                </AddItemButton>
-
+                        {popDisplay}
  
-               {popDisplay}
+                        <DisplayData toggleClass2= {this.toggleClass2} entries={this.state.arrayItems} 
+                                                    currentSection={this.state.currentSection} 
+                                                    currentItem={this.state.currentItem} 
+                                                    type2Add={this.state.type2Add}                      />
+                    </Section>
+                </SectionWrapperRight>
 
-                   <DisplayData entries={this.state.items}/>
-
- 
-                <DisplayData toggleClass2= {this.toggleClass2} entries={this.state.arrayItems} currentSection={this.state.currentSection} currentItem={this.state.currentItem} type2Add={this.state.type2Add} />
-
-
-
-           </Section>
-           </SectionWrapperRight>
-
-       </AppWrapper>
-      );
+        </AppWrapper>
+        );
     }
   }
   

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import styled from "styled-components";
 
 
@@ -18,9 +17,6 @@ const SectionProperties = styled.div`
     :hover{
         background-color: #e8e8e8 !important;
     }
-    // :focus{
-    //     background-color: #46E487;
-    // }
     font-size: 1.3vw;
 `;
 const ItemProperties = styled.div`
@@ -47,13 +43,10 @@ const ItemProperties = styled.div`
 
 const SectItemContainer = styled.div`
     display: flex;
-    flex-direction:  column;
-
+    flex-direction: column;
 `;
  
 class DisplayData extends Component {
-
-
 
     constructor() {
         super();
@@ -65,30 +58,11 @@ class DisplayData extends Component {
       }
 
 
-    createTasks(item, toggle, currentSection) {
-
-        if (item.type=="Section"){
-        return  <div key={item.key} currentSection= {item.Section}>
-                <SectionProperties onClick={() => toggle(item.text,item.type)} currentSectionA= {item.text}>{item.text}</SectionProperties>
-                </div>
-        }
-        
-        else if (item.type=="Item" && item.Section == currentSection) {
-            return <SectionProperties currentSectionA= {item.text}>{item.text}</SectionProperties>
-        }
-
-        else {
-            return <div></div>
-        }
-    };
-
-
-
     createSections(item, toggle, currentSection) {
 
         var activeColor = "white";
         if (currentSection == item.text){
-            var activeColor = "#46E487";
+            var activeColor = "#46E487";  // green
             var activeBorder  = "5px solid black";
         }
         if (item.type=="Section"){
@@ -98,7 +72,6 @@ class DisplayData extends Component {
 
         </div>
         }
-
     };
 
   
@@ -115,7 +88,6 @@ class DisplayData extends Component {
                             </div>
                         </SectItemContainer>
                     </ItemProperties>
-
         }
     };
 
@@ -123,7 +95,6 @@ class DisplayData extends Component {
 
     render() {
         var todoEntries = this.props.entries;
-        var listItems = todoEntries.map((todoEntries,{toggleClass2}) => this.createTasks(todoEntries,this.props.toggleClass2,this.props.currentSection,this.props.type2Add));
         var Sections = todoEntries.map((todoEntries,{toggleClass2}) => this.createSections(todoEntries,this.props.toggleClass2,this.props.currentSection,this.props.type2Add));
         var items = todoEntries.map((todoEntries,{toggleClass2}) => this.createItems(todoEntries,this.props.toggleClass2,this.props.currentSection));
 
