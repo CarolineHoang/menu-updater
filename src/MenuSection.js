@@ -1,39 +1,19 @@
 import React, { Component } from 'react';
 
 import styled from "styled-components";
-// import TodoItems from "./TodoItems";
+import DisplayData from "./DisplayData";
 
 const AppWrapper = styled.div`
     width: 100vw;
     height: 100vh;
-   
-    background-color:purple;
     display: flex;
     justify-content: space-between;
     margin:0;
     padding:0;
+    overflow: scroll;
 `;
 const Body = styled.b`
 margin:0;
-`;
-
-const Item = styled.div`
-    height: 5vw;
-    left:0;
-    width:100%;
-    color: black;
-    background-color: white;
-    border-style: solid;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    :hover{
-        background-color: blue !important;
-    }
-    // :focus{
-    //     background-color: green;
-    // }
-    font-size: 1.3vw;
 `;
 
 const AddItemButton =styled.button`
@@ -43,7 +23,7 @@ const AddItemButton =styled.button`
     width: 50vw;
     font-size: 1.5vw;
     :hover{
-        background-color: blue;
+        background-color: #e8e8e8;
     }
 `;
 const AddButtonTitle =styled.div`
@@ -149,7 +129,7 @@ const Item2 = styled.div`
     position:absolute;
     right=0px;
     bottom=0px;
-    background-color: green;
+    background-color: #46E487;
     border-style: solid;
     display: flex;
 
@@ -163,7 +143,7 @@ const ItemContainer = styled.div`
     height: 3vw;
     width:50%;
     color: black;
-    background-color: green;
+    background-color: #46E487;
     border-style: solid;
     display: flex;
     justify-content: flex-end;
@@ -182,13 +162,12 @@ const SectionWrapperLeft = styled.div`
     left:0px;
     top:0px;
     border-right: black solid 5px;
-    overflow:hidden;
-
+    // overflow:hidden;
+    // background-color:#f9f7f7;
+    z-index: 5
 `;
 
-const Section= styled.div`
 
-`;
 const SectionWrapperRight = styled.div`
     display: flex;
     position:absolute;
@@ -198,11 +177,14 @@ const SectionWrapperRight = styled.div`
     // opacity:.2;
     right:0px;
     top:0px;
-
+    // background-color:#f9f7f7;
+    z-index: 1
 
 `;
 
+const Section= styled.div`
 
+`;
 
 
 const Form = styled.form`
@@ -213,19 +195,19 @@ const Form = styled.form`
 
 const Input = styled.input`
     
-width: 42.8vw; /* 47.8vw    49.7vw*/
-height: 4vw;
-font-size: 1.5vw;
-padding-left: 3vw;
-::placeholder {
+    width: 42.8vw; /* 47.8vw    49.7vw*/
+    height: 4vw;
     font-size: 1.5vw;
-    color:black;
+    padding-left: 3vw;
+    ::placeholder {
+        font-size: 1.5vw;
+        color:black;
 }
 `;
 
 const InputWrapper = styled.div`
-display: flex;
-justify-position: space-evenly;
+    display: flex;
+    justify-position: space-evenly;
 
 `;
 
@@ -236,7 +218,14 @@ const InputContainer = styled.div `
 `;
 
 const AddButton = styled.button`
-width: 5vw;
+    width: 5vw;
+    font-size: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+
 `;
 
 
@@ -245,115 +234,16 @@ const Label = styled.div`
 width: 6vw;
 display: flex;
 align-items: center;
+
 `;
 
 
 
 
 
-
-
-
-
- 
-class TodoItems extends Component {
-
-
-
-    constructor() {
-        super();
-        
-        this.state = {
-          clicked: true,
-
-        };
-      }
-
-
-    createTasks(item, toggle, currentSection) {
-
-        if (item.type=="Section"){
-        return  <div key={item.key} currentSection= {item.Section}>
-                <Item onClick={() => toggle(item.text,"Screaming HAOEFGNAERIU")} currentSectionA= {item.text}>{item.text}</Item>
-                </div>
-        }
-        
-        else if (item.type=="Item" && item.Section == currentSection) {
-            return <Item currentSectionA= {item.text}>{item.text}</Item>
-        }
-
-        else {
-            return <div></div>
-        }
-    };
-
-
-
-    createSections(item, toggle, currentSection) {
-
-        var activeColor = "white";
-        if (currentSection == item.text){
-            var activeColor = "green";
-        }
-        if (item.type=="Section"){
-        return <div key={item.key} currentSection= {item.Section}>
-
-        <Item type= "submit" onClick={() => toggle(item.text,"Screaming HAOEFGNAERIU")} currentSectionA= {item.text} style={{"background-color": activeColor}}>{item.text}</Item>
-
-        </div>
-        }
-
-    };
-
-  
-    createItems(item, toggle, currentSection) {
-
-        var activeColor = "white";
-        if (currentSection == item.text){ //  !!!!!! make sure to come back and change current Section to currentItem and track the current item
-            var activeColor = "green";
-        }
-
-        if (item.type=="Item" && item.Section == currentSection) {
-            return <Item currentSectionA= {item.text}  style={{"background-color": activeColor}}  >
-                        <SectItemContainer>
-                            {item.text}
-                            <div>
-                                price: ${item.price}
-                            </div>
-                        </SectItemContainer>
-                    </Item>
-
-        }
-    };
-
- 
-    render() {
-        var todoEntries = this.props.entries;
-        var listItems = todoEntries.map((todoEntries,{toggleClass2}) => this.createTasks(todoEntries,this.props.toggleClass2,this.props.currentSection,this.props.type2Add));
-        var Sections = todoEntries.map((todoEntries,{toggleClass2}) => this.createSections(todoEntries,this.props.toggleClass2,this.props.currentSection,this.props.type2Add));
-        var items = todoEntries.map((todoEntries,{toggleClass2}) => this.createItems(todoEntries,this.props.toggleClass2,this.props.currentSection));
-
-
-        
-        return (
-            <div>
-
-            {Sections} 
-
-            {items} 
-
-            </div>
-        );
-    
-    }
-};
- 
-
-
-
-
-
-
+const Error = styled.div`
+    color: red;
+`;
 
 
 
@@ -369,66 +259,19 @@ class MenuSection extends Component {
 
             clicked: true,
             currentSection: null,
-            currentType: null,
-              
-
+            currentItem: null,
+            currentType: null,  
             Menu: this.props.Menu,
+
             items:  [
             ],
 
-            "Items": [
-                {
-                    "title": "Chicken Over Rice",
-                    "price": 12
-                },
-                {
-                    "title": "Chicken Over Rice",
-                    "price": 12
-                }
-            ],
-
-            "MenuSection": [
-                {
-                    "Items": [
-                        {
-                            "title": "Chicken Over Rice",
-                            "price": 12
-                        },
-                        {
-                            "title": "aadadfae",
-                            "price": 11423
-                        },                        {
-                            "title": "Ceaveaaa",
-                            "price": 234
-                        }
-                    ],
-                    "name": "Lunch Specials"
-                },
-                {
-                    "Items": [
-                        {
-                            "title": "food",
-                            "price": 200
-                        }
-                    ],
-                    "name": "recipe challenged"
-                },
-                {
-                    "Items": [
-                        {
-                            "title": "food2",
-                            "price": 200342
-                        }
-                    ],
-                    "name": "super recipe challenged"
-                },
-
-            ],
             arrayItems:  [
             ],
 
-            Sections:[],
-            
+            Sections:[
+            ],
+
             selectedStyle:{"background-color": "white"},
 
 
@@ -476,16 +319,15 @@ class MenuSection extends Component {
         this.toggleClass2 = this.toggleClass2.bind(this);
 
         this.addItem = this.addItem.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleChange2 = this.handleChange2.bind(this);
-
+        
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.itemInput = this.itemInput.bind(this);
-        // this.Tester = this.Tester.bind(this);
+
         this.popUpToggle = this.popUpToggle.bind(this);
 
         this.handleInputChange = this.handleInputChange.bind(this);
     }
+
+
 
     addItem(type,e) {
 
@@ -531,8 +373,6 @@ class MenuSection extends Component {
             }
 
 
-
-            
             e.preventDefault();
             this.setState({     value: "",
                                 popUp: false,
@@ -542,34 +382,50 @@ class MenuSection extends Component {
 
     };  
     
-    toggleClass2(Section, screaming,Type) {
+
+
+
+
+    
+    toggleClass2(Section, Type) {
         
 
         if (this.state.Section !== null) {
             this.setState({ errorMsg:""})
         }
+
+        if (this.state.currentSection===Section){
+            this.setState({ currentSection: null,
+                            popUp: false})
+        }
+
+        else{
         const currentState = this.state.clicked;
         this.setState({ clicked: !currentState ,
                         currentSection: Section,
-                        type2Add: Type}
+                        // currentItem: Item
+                        type2Add: Type,
+                        popUp: false}
                         , function () {
-                            console.log("AAAAAAAAAAAAAAAAAA   " + this.state.currentSection);
+                            console.log("the current section is:   " + this.state.type2Add);
+                            // ^This prints out a current and up to date version of currentSection to check
                         }
                         
                         );
+        }
         
     };
-    
-    handleChange(event) {
-        const target = event.target;
-        const value = target.type
-        this.setState({value: event.target.value});
-      };
-    
+
+
+
+
+
+
+
+
+
         
-      handleChange2(event) {
-        this.setState({price: event.target.price});
-      };
+
 
       handleInputChange(event) {
         const target = event.target;
@@ -588,33 +444,10 @@ class MenuSection extends Component {
       };
 
 
-    
-    itemInput() {
+ 
 
 
 
-        return(
-            <PopUp>sdc
-            <Form onSubmit={this.addItem}>
-            <Input type="text" value={this.state.value} onChange={this.handleChange} popUpToggle= {this.popUpToggle} placeholder="enter task3"/>
-
-          <AddButton type="submit">+</AddButton>
-        </Form> 
-        </PopUp>        
-  
-        );
-    };
-
-
-    Tester(){
-        alert("Im an alert");
-        return(
-            <div>
-            <div>test test test test test</div>        
-
-            </div> 
-        );
-    };
 
 
     popUpToggle(type,Close){
@@ -728,21 +561,22 @@ class MenuSection extends Component {
 
 
               
-                   <TodoItems entries={this.state.items}/>
+                   <DisplayData entries={this.state.items}/>
       
-                <TodoItems toggleClass2= {this.toggleClass2} entries={this.state.Sections} currentSection={this.state.currentSection}/>
+                <DisplayData toggleClass2= {this.toggleClass2} entries={this.state.Sections} currentSection={this.state.currentSection} currentItem={this.state.currentItem} />
 
 
            </Section>
-       </SectionWrapperLeft>
-       <SectionWrapperRight>
+        </SectionWrapperLeft>
+
+        <SectionWrapperRight>
            <Section>
 
                 <AddItemButton onClick= {() => this.popUpToggle("Item")}>
                     <AddButtonTitle>
                         <SectItemContainer>
                         Section Items
-                        <div>{this.state.errorMsg}</div>
+                        <Error>{this.state.errorMsg}</Error>
                         </SectItemContainer>
                     </AddButtonTitle> 
                     <Plus>+</Plus>
@@ -751,15 +585,15 @@ class MenuSection extends Component {
  
                {popDisplay}
 
-                   <TodoItems entries={this.state.items}/>
+                   <DisplayData entries={this.state.items}/>
 
  
-                <TodoItems toggleClass2= {this.toggleClass2} entries={this.state.arrayItems} currentSection={this.state.currentSection} type2Add={this.state.type2Add} />
+                <DisplayData toggleClass2= {this.toggleClass2} entries={this.state.arrayItems} currentSection={this.state.currentSection} currentItem={this.state.currentItem} type2Add={this.state.type2Add} />
 
 
 
            </Section>
-       </SectionWrapperRight>
+           </SectionWrapperRight>
 
        </AppWrapper>
       );

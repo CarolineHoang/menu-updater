@@ -157,7 +157,7 @@ class App extends Component {
 
     return (
       <div className="App">
-          {/* <TestButton onClick={this.toggleClass}>somethign </TestButton> */}
+          <TestButton onClick={this.toggleClass}>somethign </TestButton>
           <testerButton/>
           <SideBarExtended clicked= {this.state.clicked } {...this.props}/>
           {/* <div onClick={this.toggleClass}> */}
