@@ -58,7 +58,7 @@ class DisplayData extends Component {
       }
 
 
-    createSections(item, toggle, currentSection) {
+    createSections(item, setCurrentState, currentSection) {
 
         var activeColor = "white";
         if (currentSection == item.text){
@@ -68,19 +68,25 @@ class DisplayData extends Component {
         if (item.type=="Section"){
         return <div key={item.key} currentSection= {item.Section}>
 
-        <SectionProperties type= "submit" onClick={() => toggle(item.text,item.type)} currentSectionA= {item.text} style={{"background-color": activeColor, "border-top": activeBorder, "border-bottom": activeBorder, "border-right": "solid black 5px"}}>{item.text}</SectionProperties>
+        <SectionProperties  type= "submit" onClick={() => setCurrentState(item.text,item.type)} 
+                            style={{    backgroundColor: activeColor, 
+                                        borderTop: activeBorder, 
+                                        borderBottom: activeBorder, 
+                                        borderRight: "solid black 5px"     }}>                 
+            {item.text}
+        </SectionProperties>
 
         </div>
         }
     };
 
   
-    createItems(item, toggle, currentSection) {
+    createItems(item, setCurrentState, currentSection) {
 
         var activeColor = "white";
 
         if (item.type=="Item" && item.Section == currentSection) {
-            return <ItemProperties currentSectionA= {item.text}  style={{"background-color": activeColor}}>
+            return <ItemProperties style={{"background-color": activeColor}}>
                         <SectItemContainer>
                             {item.text}
                             <div>
@@ -95,8 +101,14 @@ class DisplayData extends Component {
 
     render() {
         var todoEntries = this.props.entries;
-        var Sections = todoEntries.map((todoEntries,{toggleClass2}) => this.createSections(todoEntries,this.props.toggleClass2,this.props.currentSection,this.props.type2Add));
-        var items = todoEntries.map((todoEntries,{toggleClass2}) => this.createItems(todoEntries,this.props.toggleClass2,this.props.currentSection));
+        var Sections = todoEntries.map((todoEntries,{setCurrentState}) => this.createSections(  todoEntries,
+                                                                                                this.props.setCurrentState,
+                                                                                                this.props.currentSection,
+                                                                                                this.props.type2Add             ));
+
+        var items = todoEntries.map((todoEntries,{setCurrentState}) =>    this.createItems(     todoEntries,
+                                                                                                this.props.setCurrentState,
+                                                                                                this.props.currentSection       ));
 
 
         

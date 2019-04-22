@@ -209,30 +209,32 @@ class MenuSection extends Component {
 
         };
 
-        var index2 =0;
+        var index =0;
 
         for(var i = 0; i < this.state.Menu.MenuSection.length; i++){
             for(var j = 0; j < this.state.Menu.MenuSection[i].Items.length; j++){
-            this.state.arrayItems[index2] = {text: this.state.Menu.MenuSection[i].Items[j].title,
-                                        "price": this.state.Menu.MenuSection[i].Items[j].price,
-                                        "Section": this.state.Menu.MenuSection[i].name,
-                                        "type": "Item", 
+            this.state.arrayItems[index] =  {   text: this.state.Menu.MenuSection[i].Items[j].title,
+                                                "price": this.state.Menu.MenuSection[i].Items[j].price,
+                                                "Section": this.state.Menu.MenuSection[i].name,
+                                                "type": "Item", 
+                                                key: index
                                     };
-            index2++;
+            index++;
             };
 
         };
        
         for(var i = 0; i < this.state.Menu.MenuSection.length; i++){
-            this.state.Sections[i] = {text:this.state.Menu.MenuSection[i].name,
-                                     "type": "Section"
+            this.state.Sections[i] =    {   text:this.state.Menu.MenuSection[i].name,
+                                            "type": "Section",
+                                            key: index
                                         };
-            index2++;
+            index++;
             };
 
 
 
-        this.toggleClass2 = this.toggleClass2.bind(this);
+        this.setCurrentState = this.setCurrentState.bind(this);
 
         this.addItem = this.addItem.bind(this);
 
@@ -253,11 +255,11 @@ class MenuSection extends Component {
             "Section": this.state.currentSection,
                "type": type,
 
-              key: this.state.index2
+              key: this.state.index
             };
 
             if  (type== "Item")   {
-                this.state.index2++
+                this.state.index++
         
                 this.setState((prevState) => {
 
@@ -272,7 +274,7 @@ class MenuSection extends Component {
 
 
             else if  (type== "Section")   {
-                    this.state.index2++
+                    this.state.index++
                     this.setState((prevState) => {
     
                         return { 
@@ -292,7 +294,7 @@ class MenuSection extends Component {
             });
     };  
     
-    toggleClass2(Section, Type) {
+    setCurrentState(Section, Type) {
         
 
         if (this.state.Section !== null) {
@@ -407,7 +409,7 @@ class MenuSection extends Component {
                             <Plus>+</Plus>
                         </AddItemButton>
                         {popDisplay}
-                        <DisplayData toggleClass2= {this.toggleClass2} 
+                        <DisplayData setCurrentState= {this.setCurrentState} 
                                      entries={this.state.Sections} 
                                      currentSection={this.state.currentSection} 
                                      currentItem={this.state.currentItem}        />
@@ -430,7 +432,7 @@ class MenuSection extends Component {
 
                         {popDisplay}
  
-                        <DisplayData toggleClass2= {this.toggleClass2} entries={this.state.arrayItems} 
+                        <DisplayData setCurrentState= {this.setCurrentState} entries={this.state.arrayItems} 
                                                     currentSection={this.state.currentSection} 
                                                     currentItem={this.state.currentItem} 
                                                     type2Add={this.state.type2Add}                      />

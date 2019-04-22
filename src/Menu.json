@@ -5,24 +5,7 @@
                 {
                     "title": "Chicken Over Rice",
                     "price": 12
-                },
-
-                {
-                    "title": "Chicken2 Over Rice",
-                    "price": 12
-                }, 
-
-                {
-                    "title": "Chicken3 Over Rice",
-                    "price": 12
-                },
-
-                {
-                    "title": "Chicken4 Over Rice",
-                    "price": 12
                 }
-
-
             ],
             "name": "Lunch Specials"
         },
@@ -32,41 +15,47 @@
         {
             "Items": [
                 {
-                    "title": "something other than chicken",
-                    "price": 23312
+                    "title": "Steak and Fries",
+                    "price": 25
                 },
 
                 {
-                    "title": "something other than beef",
-                    "price": 23982
-                }
-
+                    "title": "Ratatouille",
+                    "price": 10
+                },
+                {
+                    "title": "Green Eggs and Ham",
+                    "price": 8
+                }              
+                
 
             ],
             "name": "Dinner Specials"
         },
 
 
-
         {
             "Items": [
                 {
-                    "title": "beef",
-                    "price": 29298412
+                    "title": "Creme Brulee",
+                    "price": 14
                 },
-
                 {
-                    "title": "probably some kind of food",
-                    "price": 29298412
+                    "title": "Sourire de l'Ange",
+                    "price": 17
                 },
-
                 {
-
+                    "title": "Spider Donut",
+                    "price": 9999
+                },
+                {
+                    "title": "Beignets",
+                    "price": 15
                 }
 
 
             ],
-            "name": "Something Specials"
+            "name": "Desserts"
         },
 
 
@@ -74,22 +63,27 @@
         {
             "Items": [
                 {
-                    "title": "Creme Brulee",
-                    "price": 23923556
+                    "title": "Gray Stuff",
+                    "price": 50
                 },
 
                 {
                     "title": "ButterBeer",
                     "price": 66838748
+                },
+                {
+                    "title": "Blue Coca Cola",
+                    "price": 5
                 }
 
 
             ],
-            "name": "Desserts"
+            "name": "Specialty Items"
         }
 
 
-        
+
+
     ]
     
 }
