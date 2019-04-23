@@ -55,7 +55,7 @@ This program was built on React.Js with styled-components for styling.
 
 
 
-### To change the permanant items that you see first presented to you:
+### To change the permanent items that you see first presented to you:
 
     1) open the Menu.json JSON file located at ./menu-updater/src/json/Menu.json
     2) Add new items and sections using the designated format as shown:
@@ -78,7 +78,7 @@ This program was built on React.Js with styled-components for styling.
             }
                     
 ```
-    ** Note: the orginal provided json example had a comma after the 12, but that doesn't function. 
-    So, for any addition made, the last element in a given dicionary (between two {}) cannot have a comma at the end. **
+    ** Note: the original provided json example had a comma after the 12, but that doesn't function. 
+    So, for any addition made, the last element in a given dictionary (between two {}) cannot have a comma at the end. **
 
     3) Save the file.
