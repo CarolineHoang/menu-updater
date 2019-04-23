@@ -26,7 +26,11 @@
                 {
                     "title": "Green Eggs and Ham",
                     "price": 8
-                }              
+                },
+                {
+                    "title": "Lamb With Salad",
+                    "price": 20
+                }                         
                 
 
             ],
@@ -51,25 +55,10 @@
                 {
                     "title": "Beignets",
                     "price": 15
-                }
-
-
-            ],
-            "name": "Desserts"
-        },
-
-
-
-        {
-            "Items": [
-                {
-                    "title": "Gray Stuff",
-                    "price": 50
                 },
-
                 {
                     "title": "ButterBeer",
-                    "price": 66838748
+                    "price": 30
                 },
                 {
                     "title": "Blue Coca Cola",
@@ -78,7 +67,7 @@
 
 
             ],
-            "name": "Specialty Items"
+            "name": "Specials of the Day"
         }
 
 
