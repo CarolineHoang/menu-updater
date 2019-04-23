@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---Menu Updater App
 
-## Available Scripts
+This program was built on React.Js with styled-components for styling.
 
-In the project directory, you can run:
+--To run this program:
 
-### `npm start`
+1) Download the program from my GitHub: https://github.com/CarolineHoang/menu-updater
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+2) cd into the file menu-updater
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+3) run:         npm install
+                npm start
 
-### `npm test`
+    The React app should begin running on the local host.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+--Using this program:
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+-To look at the items assigned to a particular section:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    Select any of the sections listed on the left hand side. 
+    They will bring up all corresponding items (as listed in the JSON file Menu.json) on the right.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+-To add a new section:
 
-## Learn More
+    1) Click the add item button at the top (It reads: Menu Sections +)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    2) Fill out a name for your new section
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    3) Either hit ENTER or click the + button to the right of the form fields to submit the values and generate the section.
+        The JSON will not be overridden and the new items will exist only in the current memory.
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
+-To add a new item to a section:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+    1) Select the section you would like to add to from the left
+       (You must first select a section to add an item.)
 
-### Advanced Configuration
+    2) Click the add item button at the top (It reads: Section Items +)
+        This will bring up a pop up that will prompt you to enter a name for the new food item
+        and a price. (If you leave the price blank, the price will default 0
+                     NOTE: You MUST enter a item name in order for a new item to be generated)
+                     
+    3) Either hit ENTER or click the + button to the right of the form fields to submit the values and generate the item.
+        The JSON will not be overridden and the new items will exist only in the current memory.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
+-To change the permanant items that you see first presented to you:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+    1) open the Menu.json JSON file located at ./menu-updater/src/json/Menu.json
+    2) Add new items and sections using the designated format as shown:
+        I based this application on the given JSON format:
 
-### `npm run build` fails to minify
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+            {
+                "MenuSection": [
+                    {
+                        "Items": [
+                            {
+                                "title": "Chicken Over Rice",
+                                "price": 12
+                            }
+                        ],
+                        "name": "Lunch Specials"
+                    }
+                ]
+            }
+                    
+```
+    Note: the orginal provided json example had a comma after the 12, but that doesn't function. 
+    So, for any addition made, the last element in a given dicionary (between two {}) cannot have a comma at the end.
+
+    3) Save the file.

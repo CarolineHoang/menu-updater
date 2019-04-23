@@ -174,7 +174,7 @@ const Error = styled.div`
 
 
 
-class MenuSection extends Component {
+class Updater extends Component {
 
     constructor(props) {
         super(props);
@@ -444,7 +444,7 @@ class MenuSection extends Component {
     }
   }
   
-  export default MenuSection;
+  export default Updater;
   
 
 

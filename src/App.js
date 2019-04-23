@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import styled from "styled-components";
 
-import Menu from './Menu.json';
-import MenuSection from './MenuSection';
+import Menu from './json/Menu.json';
+import Updater from './components/Updater';
 
 
 
@@ -24,7 +24,7 @@ class App extends Component {
 
     return (
       <div className="App">
-          <MenuSection Menu = {Menu} />
+          <Updater Menu = {Menu} />
       </div>
     );
   }
